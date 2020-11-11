@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
+const Container = styled.div``;
+
 const Link = styled.a`
+  position: relative;
   &:hover::after {
-    display: block;
+    pointer-events: all;
+    opacity: 1;
   }
 
   &:after {
@@ -13,13 +17,17 @@ const Link = styled.a`
     padding: 4px;
     font-size: 11px;
     border-radius: 3px;
-    display: none;
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+    white-space: nowrap;
+    transition: 0.2s;
   }
 `;
 
 export default function Home() {
   return (
-    <div>
+    <Container>
       <Link
         href="#component-tooltip"
         role="tooltip"
@@ -27,6 +35,7 @@ export default function Home() {
       >
         Tooltip Aqui
       </Link>
-    </div>
+      <a>teste</a>
+    </Container>
   );
 }
